@@ -1,8 +1,18 @@
 import struct
-
+import os
 
 def tamper(student_id):
-  pass
+  name=os.path.abspath(__file__)
+  lname=os.path.dirname(name)
+  full_name=os.path.join(lname,"lenna.bmp")
+  f=open("lenna.bmp", "r+b")
+  a=[2,0,1,8,1,1,1,1,3,0,2,7]
+  for l in a:
+      b=53
+      f.seek(b+l)
+      a=bytes([0,0,0])
+      f.write(a)
+  f.close()
 
 
 def detect():
